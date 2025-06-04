@@ -3,7 +3,7 @@ spring:
     name: yubi-backend
   # 默认 dev 环境
   profiles:
-    active: dev
+    active: test
   # 支持 swagger3
   mvc:
     pathmatch:
@@ -18,7 +18,7 @@ spring:
   # todo 需替换配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/yubi
+    url: jdbc:mysql://localhost:3306/zzbi
     username: root
     password: 123456
   # Redis 配置
@@ -87,3 +87,9 @@ cos:
     secretKey: xxx
     region: xxx
     bucket: xxx
+
+# AI 配置
+doubao:
+  client:
+    api_key: 7d85f60d-c390-4c95-b668-9742c12dc32b
+    bot_id: bot-20250409095102-ffjdd
