@@ -5,6 +5,8 @@ import com.volcengine.ark.runtime.model.bot.completion.chat.BotChatCompletionRes
 import com.volcengine.ark.runtime.model.completion.chat.ChatMessage;
 import com.volcengine.ark.runtime.model.completion.chat.ChatMessageRole;
 import com.volcengine.ark.runtime.service.ArkService;
+import com.yupi.springbootinit.common.ErrorCode;
+import com.yupi.springbootinit.exception.BusinessException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +39,8 @@ public class AIManager {
                 .build();
 
         BotChatCompletionResult chatCompletionResult =  service.createBotChatCompletion(chatCompletionRequest);
+        if (chatCompletionResult.getChoices() == null)
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "AI 响应错误");
         final String[] cases = {""};
         chatCompletionResult.getChoices().forEach(
                 choice -> cases[0] = choice.getMessage().getContent().toString()
