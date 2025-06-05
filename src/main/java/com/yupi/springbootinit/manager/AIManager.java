@@ -27,7 +27,6 @@ public class AIManager {
     public String doChat(String message) {
         ArkService service = ArkService.builder().apiKey(api_key).build();
 
-        System.out.println("\n----- standard request -----");
         final List<ChatMessage> messages = new ArrayList<>();
         final ChatMessage userMessage = ChatMessage.builder().role(ChatMessageRole.USER).content(message).build();
         messages.add(userMessage);
