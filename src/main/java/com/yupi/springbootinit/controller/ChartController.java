@@ -252,7 +252,7 @@ public class ChartController {
         final long ONE_MB = 1024 * 1024L;
         ThrowUtils.throwIf(size > ONE_MB, ErrorCode.PARAMS_ERROR,"文件超过1M");
         String suffix = FileUtil.getSuffix(originalFileName);
-        final List<String> validFileSuffixList = Arrays.asList("png", "jpg", "svg", "webp", "jpeg");
+        final List<String> validFileSuffixList = Arrays.asList("xlsx", "xls");
         ThrowUtils.throwIf(!validFileSuffixList.contains(suffix), ErrorCode.PARAMS_ERROR, "文件后缀非法");
 
         // 通过response对象拿到用户id
